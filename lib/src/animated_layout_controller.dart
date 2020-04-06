@@ -7,26 +7,31 @@ import 'package:meta/meta.dart';
 class AnimatedLayoutController {
   StreamController _eventStreamController =
       StreamController<ControllerEvent>.broadcast();
-  List<Widget> children;
+  List<Widget> _children;
 
   List<int> _percentages;
 
   Duration duration;
   final Curve curve;
+
+  List<Widget> get children => _children;
+
   AnimatedLayoutController({
     @required List<int> initialDivisions,
     @required this.duration,
-    @required this.children,
+    @required List<Widget> children,
     this.curve = Curves.linear,
   })  : assert(duration != null),
         assert(children != null),
+        _children = children,
         assert(initialDivisions.length == children.length),
         assert(curve != null),
         _percentages = initialDivisions;
+
   List<int> get divisions => _percentages;
 
   set divisions(List<int> divisions) {
-    assert(numOfDivisions == children.length);
+    assert(numOfDivisions == _children.length);
     _percentages = divisions;
   }
 
@@ -38,6 +43,12 @@ class AnimatedLayoutController {
     final oldDivisions = this.divisions;
     this.divisions = newDivisions;
     _eventStreamController.add(AnimateTo(from: oldDivisions, to: newDivisions));
+  }
+
+  void updateChildren(List<Widget> children) {
+    assert(children.length == divisions.length);
+    _children = children;
+    _eventStreamController.add(UpdateChildren(children));
   }
 
   void close() => _eventStreamController.close();

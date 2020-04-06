@@ -4,11 +4,6 @@ A widget that allows you to make layouts that can animate between sizing
 
 ## Getting Started
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+To get started using this widget, first define your `AnimatedLayoutController`.
+This controller requires an animation `Duration`, a List of widgets, 
+which is defined here to allow switching the contents dynamically.

@@ -87,6 +87,8 @@ class _AnimatedLayoutState extends State<AnimatedLayout>
     animatedLayoutController.eventStream.listen((event) {
       if (event is AnimateTo) {
         setState(() {});
+      } else if (event is UpdateChildren) {
+        setState(() {});
       }
     });
   }

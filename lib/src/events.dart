@@ -8,3 +8,9 @@ class AnimateTo extends ControllerEvent {
 
   AnimateTo({@required this.from, @required this.to});
 }
+
+class UpdateChildren extends ControllerEvent {
+  final List<Widget> children;
+
+  UpdateChildren(this.children);
+}

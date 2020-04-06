@@ -1,8 +1,7 @@
 name: animated_layout
 description: A widget that allows you to make layouts that can animate between sizing
-version: 0.1.0
-author:
-homepage:
+version: 0.0.2
+repository: https://github.com/ThinkDigitalSoftware/animated_layout
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -10,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  meta: ^1.1.8
 
 dev_dependencies:
   flutter_test:
